@@ -1,0 +1,27 @@
+
+.movie-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    text-align: center;
+  }
+  
+  .movie-detail-container p {
+    font-size: 1.5rem;
+    color: #4a4a8e;
+    background-color: #e0e5f7;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .movie-detail-container p:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
