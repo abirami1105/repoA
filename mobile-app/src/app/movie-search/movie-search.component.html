@@ -1,0 +1,12 @@
+<div>
+  <input type="text" [(ngModel)]="query" placeholder="Search for movies by name...">
+  <select [(ngModel)]="genre">
+    <option value="">All Genres</option>
+    <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+  </select>
+  <input type="number" [(ngModel)]="rating" placeholder="Search by movie rating">
+  <button (click)="onSearch()">Search</button>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+  <app-movie-list [movies]="movies"></app-movie-list>
+</div>
