@@ -1,0 +1,31 @@
+<div *ngIf="movies.length; else noMovies">
+  <div class="movie-list">
+    <div *ngFor="let movie of movies" class="movie-item">
+      <div class="movie-card">
+    
+      <h2>{{ movie.title }}</h2>
+      <p><strong>Genre:</strong> {{ movie.genre }}</p>
+      <p><strong>Rating:</strong> {{ movie.rating }}</p>
+      <p>{{ movie.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noMovies>
+  <div>No movies found</div>
+</ng-template>
+
+<style>
+  .movie-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+  .movie-item {
+      flex: 1 0 200px; /* Adjust the width as needed */
+      margin: 10px;
+      text-align: center;
+  }
+</style>
