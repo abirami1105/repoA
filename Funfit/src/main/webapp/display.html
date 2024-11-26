@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Participant</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+        }
+
+        .form-container {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #1abc9c;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Add Participant</h2>
+        <form action="AddParticipant" method="post">
+            <div class="form-group">
+                <label for="name">Participant Name:</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter participant name" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" class="form-control" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="batchId">Batch:</label>
+                <select id="batchId" name="batchId" class="form-control" required>
+                    <option value="" disabled selected>Select Batch</option>
+                    <option value="1">Batch 1 - Morning</option>
+                    <option value="2">Batch 2 - Evening</option>
+                    <option value="3">Batch 3 - Weekend</option>
+                </select>
+            </div>
+            <button type="submit">Add Participant</button>
+        </form>
+    </div>
+</body>
+
+</html>

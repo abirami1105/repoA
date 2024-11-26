@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Batch</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #2c3e50;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .form-container h2 {
+            font-weight: bold;
+            color: #1abc9c;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-custom {
+            background-color: #1abc9c;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background-color: #16a085;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 15px;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Add Batch</h2>
+        <form action="AddBatch" method="post">
+            <div class="form-group">
+                <label for="batchName">Batch Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter batch name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="batchTime">Batch Time:</label>
+                <input type="text" class="form-control" id="time" name="time" placeholder="Enter batch time" required>
+            </div>
+
+            <button type="submit" class="btn btn-custom">Add Batch</button>
+        </form>
+        <div class="form-footer">
+            <p>Manage your Zumba batches with ease!</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
