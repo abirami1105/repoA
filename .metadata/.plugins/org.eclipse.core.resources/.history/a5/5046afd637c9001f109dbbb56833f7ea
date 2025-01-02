@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Owner Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+            color: #495057;
+        }
+
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #218838;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-size: 2rem;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-container input:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        .form-container button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #218838;
+        }
+
+        .owner-list {
+            margin-top: 40px;
+        }
+
+        .owner-list h3 {
+            font-size: 1.8rem;
+            color: #343a40;
+            text-align: center;
+        }
+
+        .owner-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .owner-list li {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .owner-list li span {
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Pet Owner Registration</h1>
+</header>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Register a New Owner</h2>
+        <form id="ownerForm">
+            <label for="name">Owner's Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter full name" required>
+
+            <label for="contact">Contact Information:</label>
+            <input type="text" id="contact" name="contact" placeholder="Enter contact details" required>
+
+            <button type="submit">Register Owner</button>
+        </form>
+    </div>
+
+    <div class="owner-list">
+        <h3>Owner Directory</h3>
+        <ul id="ownerList"></ul>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Pet Care Center. All rights reserved.</p>
+</footer>
+
+<script>
+    document.getElementById("ownerForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const ownerData = {
+            name: document.getElementById("name").value,
+            contact: document.getElementById("contact").value
+        };
+
+        fetch("/owners", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(ownerData)
+        })
+        .then(response => response.json())
+        .then(owner => {
+            alert("Owner registered successfully!");
+            loadOwners(); // Reload the list of owners after adding a new one
+        });
+    });
+
+    function loadOwners() {
+        fetch("/owners")
+            .then(response => response.json())
+            .then(owners => {
+                const ownerList = document.getElementById("ownerList");
+                ownerList.innerHTML = "";
+                owners.forEach(owner => {
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `
+                        <span>${owner.name}</span> - ${owner.contact}
+                    `;
+                    ownerList.appendChild(listItem);
+                });
+            });
+    }
+
+    loadOwners(); // Load owners when the page is first loaded
+</script>
+
+</body>
+</html>
