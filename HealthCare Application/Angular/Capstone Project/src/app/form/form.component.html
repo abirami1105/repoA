@@ -1,0 +1,150 @@
+<style>
+    .form-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #272e35;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+        color: #333;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+
+    .success-message {
+        text-align: center;
+        color: #28a745;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="form-container">
+    <div class="form-header">Create New User</div>
+    <div class="submit-form">
+        <div *ngIf="!isSubmitted">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                    class="form-control"
+                    id="name"
+                    required
+                    [(ngModel)]="user.name"
+                    name="name"
+                    placeholder="Enter your name"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    class="form-control"
+                    id="email"
+                    required
+                    [(ngModel)]="user.email"
+                    name="email"
+                    placeholder="Enter your email"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    class="form-control"
+                    id="password"
+                    required
+                    [(ngModel)]="user.password"
+                    name="password"
+                    type="password"
+                    placeholder="Create a password"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input
+                    class="form-control"
+                    id="country"
+                    required
+                    [(ngModel)]="user.country"
+                    name="country"
+                    placeholder="Enter your country"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input
+                    class="form-control"
+                    id="login"
+                    required
+                    [(ngModel)]="user.login"
+                    value="0"
+                    name="login"
+                    type="number"
+                    placeholder="Enter login count"
+                />
+            </div>
+
+            <div class="btn-container">
+                <button (click)="addUser()" class="btn btn-success">Register Here</button>
+            </div>
+        </div>
+        <div *ngIf="isSubmitted" class="success-message">
+            <h3>Data Added Successfully</h3>
+        </div>
+    </div>
+</div>

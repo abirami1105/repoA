@@ -1,0 +1,67 @@
+<div style="max-width: 600px; margin:auto;">
+  <div class="submit-form">
+      <div *ngIf="!isSubmitted">
+          <!-- Name Field -->
+          <div class="form-group">
+              <label for="name" class="font-weight-bold">Name</label>
+              <input class="form-control" id="name" required [(ngModel)]="medicine.name" name="name" placeholder="Enter medicine name">
+          </div>
+
+          <!-- Description Field -->
+          <div class="form-group">
+              <label for="description" class="font-weight-bold">Description</label>
+              <input class="form-control" id="description" required [(ngModel)]="medicine.description" name="description" placeholder="Enter medicine description">
+          </div>
+
+          <!-- Category Field -->
+          <div class="form-group">
+              <label for="category" class="font-weight-bold">Category</label>
+              <input class="form-control" id="category" required [(ngModel)]="medicine.category" name="category" placeholder="Enter medicine category">
+          </div>
+
+          <!-- Price Field -->
+          <div class="form-group">
+              <label for="price" class="font-weight-bold">Price</label>
+              <input class="form-control" id="price" required [(ngModel)]="medicine.price" name="price" placeholder="Enter medicine price">
+          </div>
+
+          <!-- File Upload Progress -->
+          <div *ngIf="currentFile" class="progress my-3">
+              <div
+                class="progress-bar progress-bar-info progress-bar-striped"
+                role="progressbar"
+                [attr.aria-valuenow]="progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                [ngStyle]="{ width: progress + '%' }"
+              >
+                {{ progress }}%
+              </div>
+          </div>
+          
+          <!-- File Input Button -->
+          <div class="form-group">
+              <label class="btn btn-primary d-inline-flex align-items-center">
+    <i class="fa fa-upload mr-2"></i> Choose File
+    <input type="file" (change)="selectFile($event)" style="display: none;" />
+</label>
+
+          </div>
+          
+          <!-- Upload Button -->
+          <button class="btn btn-success btn-block" [disabled]="!selectedFiles" (click)="addUser()">
+              <i class="fa fa-cloud-upload-alt"></i> Upload
+          </button>
+          
+          <!-- Alert Message -->
+          <div *ngIf="message" class="alert alert-light mt-3" role="alert">
+              {{ message }}
+          </div>
+      </div>
+
+      <!-- Success Message -->
+      <div *ngIf="isSubmitted" class="text-center">
+          <h3 class="text-success">Data Added Successfully</h3>
+      </div>
+  </div>
+</div>

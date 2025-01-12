@@ -1,0 +1,91 @@
+<style>
+    .form-container {
+        width: 500px;
+        margin: 100px auto; /* Center the form vertically and horizontally */
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        font-family: Arial, sans-serif;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: inline-block;
+        color: #333;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .success-message {
+        text-align: center;
+        color: #28a745;
+    }
+</style>
+
+<div class="form-container">
+    <div class="submit-form">
+        <div *ngIf="!isSubmitted">
+
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input class="form-control" id="id" required [(ngModel)]="user.id" name="id" placeholder="Enter your ID">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" required [(ngModel)]="user.email" name="email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" id="password" required [(ngModel)]="user.password" name="password" type="password" placeholder="Enter your password">
+            </div>
+
+            <div class="btn-container">
+                <button (click)="checkUser()" class="btn btn-success">Login</button>
+            </div>
+        </div>
+        <div *ngIf="isSubmitted" class="success-message">
+            <h3>User Found</h3>
+        </div>
+    </div>
+</div>

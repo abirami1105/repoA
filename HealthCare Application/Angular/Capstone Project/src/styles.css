@@ -1,0 +1,61 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Buttons */
+  .btn-custom {
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-custom:hover {
+    background-color: #218838;
+    color: white;
+  }
+  
+  /* Custom Card Styles */
+  .card-custom {
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-custom h5 {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .card-custom p {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
